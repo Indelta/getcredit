@@ -1,0 +1,103 @@
+#selection {
+    background: url('../../../images/selection-bg.jpg') center 100px no-repeat;
+    background-size: cover;
+    .container {
+        background: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, .3);
+        padding: 0 10px 10px;
+    }
+    h2 {
+        text-align: center;
+        padding: 30px 0;
+        font-weight: 500;
+        font-size: 32px;
+        color: #222222;
+    }
+    .selection-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: -10px;
+        .selection-item {
+            width: 33%;
+            min-width: 315px;
+            text-align: center;
+            margin-bottom: 5px;
+            padding: 30px 0;
+            img {
+                display: inline-block;
+                margin-bottom: 20px;
+                border: 2px solid transparent;
+                transition: all .3s;
+            }
+            p {
+                color: #fff;
+                font-size: 20px;
+                font-weight: 500;
+            }
+            &:hover {
+                img {
+                    border-color: #fff;
+                    box-shadow: 0 3px 15px rgba(0, 0, 0, .6);
+                    transform: translate3d(0px, -1px, 0px);
+                }
+            }
+            &.item-title {
+                background: #ee4148;
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 20px;
+                padding-right: 20px;
+                h3 {
+                    font-weight: 300;
+                    font-size: 22px;
+                    text-align: left;
+                    padding-right: 10px;
+                }
+                div {
+                    font-size: 30px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #selection {
+        .selection-items {
+            justify-content: center;
+            .selection-item {
+                min-width: 249px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #selection {
+        background: #fff;
+        .container {
+            box-shadow: none;
+        }
+        .selection-items {
+            justify-content: space-around;
+            .selection-item {
+                min-width: 150px;
+                width: 50%;
+                padding: 15px 0;
+                margin-bottom: 0;
+                p {
+                    font-size: 14px;
+                }
+                img {
+                    width: 100%;
+                    max-width: 150px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+    }
+}

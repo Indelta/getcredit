@@ -1,0 +1,210 @@
+@import '../../../scss/variables.scss';
+#consultation-page {
+    #consultation {
+       padding-top: 70px;
+       h1 {
+           font-size: 32px;
+           font-weight: 500;
+           color: $darkTextColor;
+           padding-bottom: 10px;
+           border-bottom: 5px solid $yellowColor1;
+           margin-bottom: 25px;
+       }
+       h2 {
+           font-size: 20px;
+           font-weight: 700;
+           color: #000;
+           border-bottom: 5px solid $yellowColor1;
+           padding-bottom: 5px;
+           margin-bottom: 35px;
+       }
+       p {
+           font-size: 16px;
+           color: #606060;
+           margin-bottom: 30px;
+       }
+       .strong {
+           font-weight: 700;
+           color: #2b2b2b;
+       }
+       ul {
+           list-style-type: none;
+           li {
+                padding-left: 10px;
+                position: relative;
+                font-size: 16px;
+                color: #606060;
+                line-height: 1.5;
+                margin-bottom: 40px;
+                &::before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    width: 6px;
+                    height: 2px;
+                    left: 0;
+                    top: 12px;
+                    border-top: 1px solid #606060;
+                }
+           }
+       }
+       ol {
+           list-style-position: inside;
+           li {
+               font-size: 16px;
+               color: #606060;
+               line-height: 1.5;
+               margin-bottom: 30px;
+           }
+           & + p {
+               padding-left: 15px;
+           }
+       }
+       .consultation-form {
+           background: #7d1e3e;
+           padding: 15px;
+           margin-top: 100px;
+           margin-bottom: 40px;
+           .inner {
+               border: 1px solid $yellowColor1;
+               display: flex;
+               .left {
+                   display: flex;
+                   align-items: flex-end;
+                   justify-content: center;
+                   width: 60%;
+                   margin-top: -100px;
+               }
+               .right {
+                   width: 40%;
+                   padding-top: 30px;
+                   padding-right: 30px;
+               }
+               input {
+                   height: 50px;
+                   margin-bottom: 15px;
+                   text-align: center;
+                   font-size: 16px;
+               }
+               .btn {
+                   height: 50px;
+                   font-size: 20px;
+                   margin-bottom: 20px;
+               }
+               .warning-text {
+                   p {
+                        font-size: 12px;
+                        color: #fff;
+                        font-weight: 300;
+                        a {
+                            color: $yellowColor1;
+                            &:hover {
+                                text-decoration: underline;
+                            }
+                        }
+                   } 
+               }
+           }
+       }
+    }
+}
+
+@media screen and (max-width: 930px) {
+    #consultation-page {
+        #consultation {
+            .consultation-form {
+                .inner {
+                    .left {
+                        width: 50%;
+                        
+                    }
+                    .right {
+                        width: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #consultation-page {
+        #consultation {
+            padding-top: 30px;
+            .consultation-form {
+                margin-top: 40px;
+                .inner {
+                    .left {
+                        padding: 0 10px;
+                        margin-top: 0;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .btn {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #consultation-page {
+        #consultation {
+            .consultation-form {
+                .inner {
+                    .left {
+                        display: none;
+                    }
+                    .right {
+                        width: 100%;
+                        padding: 20px 30px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #consultation-page {
+        #consultation {
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 18px;
+                margin-bottom: 20px;
+            }
+            p {
+                margin-bottom: 15px;
+            }
+            ul {
+                li {
+                    margin-bottom: 20px;
+                }
+            }
+            ol {
+                li {
+                    margin-bottom: 20px;
+                }
+                & + p {
+                    padding-left: 0;
+                }
+            }
+            .consultation-form {
+                padding: 10px;
+                .inner {
+                    .right {
+                        padding: 10px;
+                    }
+                    .btn {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,280 @@
+@import '../../scss/variables.scss';
+
+#financial {
+    .container {
+        display: flex;
+        padding-top: 60px;
+    }
+    .left {
+        width: 70%;
+        padding-right: 15px;
+    }
+    .right {
+        width: 30%;
+        padding: 0 15px;
+        overflow: hidden;
+    }
+    .main-title {
+        font-size: 32px;
+        color: #222222;
+        font-weight: 500;
+        border-bottom: 10px solid $yellowColor1;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+    }
+    .full-post {
+        img {
+            width: 100%;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+        h1 {
+            font-size: 27px;
+            font-weight: 500;
+            color: #222222;
+            margin-bottom: 40px;
+        }
+        h2, h3 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #222222;
+            margin-bottom: 20px;
+        }
+        p {
+            color: #606060;
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        ul, ol {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            li {
+                margin-bottom: 10px;
+            }
+        }
+        a {
+            text-decoration: underline;
+            color: $blueLinkColor;
+        }
+    }
+    .sitebar {
+        padding-top: 45px;
+        .sitebar-title {
+            position: relative;
+            font-size: 14px;
+            display: inline-block;
+            background-color: #fff;
+            padding: 0 5px 0 0;
+            margin-bottom: 5px;
+            &::after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 157px;
+                height: 10px;
+                background-color: $yellowColor1;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                left: 100%;
+                z-index: -1;
+            }
+        }
+        a {
+            &:last-child {
+                img {
+                    width: 100%;
+                    max-width: 320px;
+                    transition: all .3s;
+                }
+                &:hover {
+                    img {
+                        transform: translate3d(0px, -1px, 0px);
+                        box-shadow: 0 0 15px rgba(0, 0, 0, .6);
+                    }
+                }
+            }
+        }
+        .sitebar-post {
+            display: block;
+            width: 100%;
+            margin-bottom: 30px;
+            img {
+                display: inline-block;
+                width: 100%;
+                margin-bottom: 15px;
+                transition: all .3s;
+            }
+            h3 {
+                font-weight: 500;
+                font-size: 15px;
+                color: #222222;
+                transition: all .3s;
+            }
+            &:hover {
+                img {
+                    transform: translate3d(0px, -1px, 0px);
+                    box-shadow: 0 0 15px rgba(0, 0, 0, .6);
+                }
+                h3 {
+                    color: $blueLinkColor;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+    .more-posts {
+        background: $yellowColor1;
+        margin-bottom: 10px;
+        .container {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 0;
+        }
+        .right {
+            width: 30%;
+            padding: 0 15px;
+        }
+        button {
+            cursor: pointer;
+            border: 0;
+            background: transparent;
+            color: #000;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            span {
+                display: inline-block;
+                padding-left: 5px;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+    #post-form {
+        background: $yellowColor1;
+        .container {
+            display: block;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        h2 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .inputs {
+            display: flex;
+            justify-content: space-between;
+            input {
+                width: 49%;
+                margin-bottom: 15px;
+                font-size: 16px;
+            }
+        }
+        .btn {
+            margin-bottom: 20px;
+        }
+        .warning-text {
+            p {
+                margin-bottom: 0;
+            }
+            a {
+                color: #de4839;
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #financial {
+        .container {
+            padding-top: 30px;
+            flex-wrap: wrap;
+        }
+        .main-title {
+            margin-bottom: 40px;
+        }
+        .left, .right {
+            width: 100%;
+            padding: 0;
+        }
+        .sitebar {
+            display: flex;
+            flex-wrap: wrap;
+            .sitebar-title {
+                font-size: 16px;
+                padding-bottom: 10px;
+                border-bottom: 3px solid $yellowColor1;
+                display: block;
+                margin-bottom: 20px;
+                width: 100%;
+                &::after {
+                    display: none;
+                }
+            }
+            a {
+                &:last-child {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 20px;
+                }
+            }
+            .sitebar-post {
+                width: 50%;
+                padding: 20px 10px;
+                margin-bottom: 0;
+            }
+        }
+        .more-posts {
+            .container {
+                justify-content: flex-start;
+            }
+            .right {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #financial {
+        .sitebar {
+            display: block;
+            .sitebar-post {
+                width: 100%;
+            }
+        }
+        #post-form {
+            h2, p {
+                text-align: center;
+            }
+            h2 {
+                font-size: 26px;
+            }
+            p {
+                font-size: 12px;
+            }
+            .inputs {
+                flex-wrap: wrap;
+                input {
+                    width: 100%;
+                }
+            }
+            .checkbox-group {
+                p {
+                    text-align: left;
+                }
+            }
+        }
+    }
+}

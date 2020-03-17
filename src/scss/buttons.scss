@@ -1,0 +1,70 @@
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $yellowColor1;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    color: #121212;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    padding: 5px 20px;
+    transition: all .3s;
+    &:hover {
+        background-color: darken($yellowColor1, 5%);
+    }
+    &:focus {
+        outline: none;
+    }
+    &[disabled] {
+        opacity: .5;
+        cursor: default;
+        &:hover {
+            background-color: $yellowColor1;
+        }
+    }
+    &.btn-block {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    &.btn-default {
+        border: 1px solid $darkColor;
+        color: $darkColor;
+        background-color: transparent;
+    }
+    &.btn-danger {
+        color: #fff;
+        background-color: $errorColor;
+        &:hover {
+            background-color: darken($errorColor, 5%);
+        }
+        &:disabled:hover {
+            background-color: $errorColor;
+        }
+    }
+    &.btn-success {
+        background-color: $successColor;
+        color: #fff;
+        &:hover {
+            background-color: darken($successColor, 5%);
+        }
+        &:disabled:hover {
+            background-color: $successColor;
+        }
+    }
+    &.btn-blue {
+        background-color: $blueLinkColor;
+        color: #fff;
+        text-transform: uppercase;
+        &:hover {
+            background-color: darken($blueLinkColor, 5%);
+        }
+        &:disabled:hover {
+            background-color: $blueLinkColor;
+        }
+    }
+}

@@ -1,0 +1,96 @@
+@import '../../scss/variables.scss';
+#ask {
+    background: $yellowColor1;
+    padding: 30px 0 40px;
+    .container {
+        padding-top: 0 !important;
+    }
+    .title {
+        margin-bottom: 15px !important;
+        font-size: 32px;
+        font-weight: 500;
+        color: #222222;
+        margin-bottom: 40px;
+    }
+    .subtitle {
+        font-weight: 500;
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    .inputs {
+        display: flex;
+        justify-content: space-between;
+        .left, .right {
+            width: 49%;
+        }
+        input {
+            margin-bottom: 15px;
+            border-color: transparent;
+        }
+        textarea {
+            min-height: 115px;
+            padding-top: 15px;
+            font-size: 16px;
+            border-color: transparent;
+        }
+    }
+    .buttons {
+        display: flex;
+        justify-content: space-between;
+        .left, .right {
+            width: 49%;
+            .warning-text {
+                a {
+                    color: $midRed;
+                    text-decoration: underline;
+                }
+            }
+            .btn {
+                &.btn-danger {
+                    background: $midRed;
+                    &:hover {
+                        background: darken($midRed, 5%);
+                    }
+                    &:disabled {
+                        &:hover {
+                            background: $midRed; 
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #ask {
+        padding: 15px 0 20px;
+        .inputs {
+            flex-wrap: wrap;
+            .left, .right {
+                width: 100%;
+            }
+            .right {
+                margin-bottom: 15px;
+            }
+        }
+        .buttons {
+            flex-wrap: wrap;
+            .left, .right {
+                width: 100%;
+            }
+            .left {
+                order: 1;
+                .checkbox-group {
+                    .text {
+                        padding-left: 10px;
+                    }
+                }
+            }
+            .right {
+                margin-bottom: 15px;
+            }
+        }
+    }
+}

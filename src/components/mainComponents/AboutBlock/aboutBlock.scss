@@ -1,0 +1,105 @@
+@import '../../../scss/variables.scss';
+#about-block {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    .inner {
+        background: url('../../../images/shape.jpg') left 0 no-repeat;
+        padding-top: 30px;
+    }
+    .container {
+        display: flex;
+    }
+    .left, .right {
+        width: 50%;
+    }
+    .text {
+        padding-right: 35px;
+        .text-title {
+            color: #fff;
+            margin-bottom: 50px;
+            p {
+                font-size: 23px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                color: #fff;
+            }
+        }
+    }
+    p {
+        font-size: 14px;
+        color: #606060;
+        line-height: 1.5;
+        &.subtitle {
+            font-size: 20px;
+            font-weight: 500;
+            color: #222222;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+@media (min-width: 1700px) {
+    #about-block {
+        .inner {
+            background-position: right top;
+        }
+    }
+}
+@media (max-width: 1170px) {
+    #about-block {
+        .inner {
+            background-position: right top;
+            .right {
+                .image {
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #about-block {
+        padding-top: 0;
+        padding-bottom: 40px;
+        .inner {
+            background: none;
+            padding-top: 0;
+            .container {
+                flex-wrap: wrap;
+                padding: 0;
+            }
+            .left, .right {
+                width: 100%;
+            }
+            .text {
+                padding-right: 0;
+                text-align: center;
+                .text-title {
+                    background: $blueLinkColor;
+                    padding: 20px 0;
+                    margin-bottom: 20px;
+                    p {
+                        font-size: 16px;
+                    }
+                    img {
+                        width: 100%;
+                        max-width: 200px;
+                    }
+                }
+            }
+        }
+        p {
+            margin-bottom: 30px;
+            padding: 0 10px;
+        }
+        .right {
+            .image {
+                max-width: 320px;
+                margin: 0 auto;
+            }
+        }
+    }
+}

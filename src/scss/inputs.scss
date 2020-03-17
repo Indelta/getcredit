@@ -1,0 +1,26 @@
+input[type=text], input[type=phone], input[type=password], input[type=number], input[type=tel], input[type=email], textarea {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    border: 1px solid $greyBorderColor;
+    border-radius: 3px;
+    padding: 0 10px;
+    transition: all .3s;
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 5px $yellowColor1;
+    }
+    &.error {
+        border: 1px solid $errorColor;
+        box-shadow: 0 0 5px $errorColor;
+        background-color: $errorColor;
+    }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}

@@ -1,0 +1,12 @@
+export const ADD_POST = 'ADD_POST';
+export const UPDATE_POSTS = 'UPDATE_POSTS';
+export const GET_USER = 'GET_USER';
+export const GET_USERS = 'GET_USERS';
+export const ADD_USER = 'ADD_USER';
+export const DELETE_USER = 'DELETE_USER';
+export const LOG_OUT = 'LOG_OUT';
+export const UPDATE_UTMS = 'UPDATE_UTMS';
+export const IS_VISIBLE_DEFAULT_THANKYOU_PAGE = 'IS_VISIBLE_DEFAULT_THANKYOU_PAGE';
+export const IS_VISIBLE_POPUP = 'IS_VISIBLE_POPUP';
+export const SET_SCHEMAS = 'SET_SCHEMAS';
+export const SET_GEO = 'SET_GEO';

@@ -1,0 +1,105 @@
+@import '../../../scss/variables.scss';
+#main-menu {
+    background: $blueLinkColor;
+    color: #fff;
+    position: relative;
+    ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        list-style-type: none;
+        li {
+            cursor: pointer;
+            div, a {
+                padding: 10px 20px;
+                font-size: 18px;
+                font-weight: 500;
+                display: block;
+                transition: all .3s;
+                &.active {
+                    background: $blueHoverLinkColor;
+                }
+            }
+            span {
+                display: inline-block;
+                margin-right: 10px;
+            }
+            i {
+                font-size: 14px;
+            }
+            .btn {
+                border: 1px solid #fff;
+                color: #fff;
+                background: rgba(0, 0, 0, .2);
+                height: 30px;
+                font-size: 15px;
+                transition: all .3s;
+                &:hover {
+                    background: rgba(0, 0, 0, .4);
+                }
+            }
+            .inset {
+                position: absolute;
+                width: 100%;
+                height: auto;
+                top: 80%;
+                opacity: 0;
+                visibility: hidden;
+                left: 0;
+                background: $blueHoverLinkColor;
+                color: #fff;
+                z-index: 0;
+                transition: all .3s ease-out;
+                .container {
+                    padding: 0;
+                }
+                ul {
+                    display: flex;
+                    flex-wrap: wrap;
+                    padding: 0 30px;
+                    li {
+                        width: 33%;
+                        a {
+                            font-size: 14px;
+                            font-weight: 400;
+                            padding: 10px;
+                            transition: all .3s;
+                            border-left: 2px solid transparent;
+                            &:hover {
+                                color: #000;
+                            }
+                            &.active {
+                                color: #000;
+                                border-left: 2px solid #000;
+                            }
+                        }
+                    }
+                }
+            }
+            &:hover  {
+                div, a {
+                    background: $blueHoverLinkColor;
+                }
+                .inset {
+                    opacity: 1;
+                    visibility: visible;
+                    top: 99%;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    #main-menu {
+        ul {
+            li {
+                div, a {
+                    font-size: 16px;
+                    padding: 10px 15px;
+                }
+            }
+        }
+    }
+}

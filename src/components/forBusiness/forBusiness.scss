@@ -1,0 +1,303 @@
+@import '../../scss/variables.scss';
+#for-business {
+    .warning-text {
+        margin-bottom: 15px;
+        p {
+            font-size: 12px;
+            color: #5d5d5d;
+            font-weight: 300;
+            a {
+                color: #fe3030;
+                text-decoration: underline;
+            }
+        }
+    }
+    .main-screen {
+        padding-top: 50px;
+        background: url('../../images/for-business/bg.jpg') center center no-repeat;
+        background-size: cover;
+        .container {
+            display: flex;
+        }
+        .left {
+            padding-right: 40px;
+            width: 70%;
+        }
+        .right {
+            width: 30%;
+        }
+        .main-title {
+            font-family: 'Oswald';
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 42px;
+            min-height: 140px;
+        }
+        .numbers {
+            width: 100%;
+            display: flex;
+            .item {
+                width: 33%;
+                .big {
+                    font-weight: 700;
+                    font-size: 36px;
+                    color: #ff0137;
+                    span {
+                        text-transform: uppercase;
+                        font-weight: 300;
+                        font-size: 16px;
+                        color: #5d5d5d;
+                    }
+                }
+                .small {
+                    font-weight: 700;
+                    font-size: 16px;
+                    color: #5d5d5d;
+                }
+            }
+        }
+        .main-form {
+            background: #fff;
+            padding: 15px;
+            h3 {
+                text-align: center;
+                font-size: 18px;
+                font-weight: 500;
+                color: #5d5d5d;
+                margin-bottom: 20px;
+            }
+            input {
+                margin-bottom: 10px;
+            }
+            
+            .btn {
+                color: #fff;
+                text-transform: uppercase;
+            }
+        }
+        .descriptions {
+            .items {
+                display: flex;
+                width: 100%;
+                padding: 30px 0;
+                .item {
+                    width: 33%;
+                    padding: 0 10px;
+                    .item-title {
+                        font-weight: 700;
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                        text-transform: uppercase;
+                    }
+                    .content {
+                        ul {
+                            list-style-type: none;
+                            font-size: 12px;
+                            color: #5d5d5d;
+                            li {
+                                position: relative;
+                                padding-left: 7px;
+                                margin-bottom: 5px;
+                                line-height: 1.2;
+                                &::before {
+                                    content: '•';
+                                    color: inherit;
+                                    display: block;
+                                    line-height: 10px;
+                                    font-size: inherit;
+                                    position: absolute;
+                                    top: 4px;
+                                    left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    #consultant-block {
+        padding: 60px 0;
+        background-color: #fff;
+        overflow: hidden;
+        .container {
+            display: flex;
+            // align-items: center;
+            .left {
+                padding-right: 30px;
+                width: 50%;
+            }
+            .right {
+                width: 50%;
+                position: relative;
+                z-index: 1;
+                padding-top: 40px;
+                img {
+                    display: inline-block;
+                    max-width: 100%;
+                    margin-bottom: 10px;
+                    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+                }
+                .btn {
+                    color: #fff;
+                    text-transform: uppercase;
+                }
+            }
+        }
+        .blue-line {
+            padding: 40px 0;
+            background: $blueBgColor;
+            color: #fff;
+            font-size: 23px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+            &::before {
+                content: '';
+                display: block;
+                width: 200px;
+                height: 100%;
+                background: $blueBgColor;
+                position: absolute;
+                top: 0;
+                right: 80%;
+                transform: skew(-45deg);
+                z-index: -1;
+            }
+            &::after {
+                content: '';
+                display: block;
+                height: 100%;
+                width: 1920px;
+                position: absolute;
+                top: 0;
+                left: 99%;
+                z-index: -1;
+                background: $blueBgColor;
+            }
+        }
+        .text {
+            font-weight: 500;
+            font-size: 14px;
+            color: #222222;
+            line-height: 1.5;
+        }
+    }
+}
+
+
+@media screen and (max-width: 920px) {
+    #for-business {
+        .main-screen {
+            .main-title {
+                font-size: 36px;
+            }
+            .left {
+                width: 65%;
+                padding-right: 20px;
+            }
+            .right {
+                width: 35%;
+            }
+            .numbers {
+                .item {
+                    .big {
+                        font-size: 28px;
+                        span {
+                            font-size: 14px;
+                        }
+                    }
+                    .small {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #for-business {
+        .main-screen {
+            padding-top: 30px;
+            .container {
+                flex-wrap: wrap;
+            }
+            .left, .right {
+                width: 100%;
+                padding: 0;
+            }
+            .main-title {
+                text-align: center;
+            }
+            .numbers {
+                margin-bottom: 20px;
+                .item {
+                    text-align: center;
+                }
+            }
+        }
+        #consultant-block {
+            padding: 30px 0;
+            .container {
+                flex-wrap: wrap;
+                justify-content: center;
+                .left, .right {
+                    width: 100%;
+                    padding: 0;
+                }
+                .right {
+                    max-width: 480px;
+                }
+                .blue-line {
+                    line-height: 1.5;
+                    text-align: center;
+                    padding: 20px 0;
+                    margin-bottom: 20px;
+                    &::before {
+                        transform: skew(0);
+                        right: 99%;
+                    }
+                }
+                .text {
+                    margin-bottom: 20px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #for-business {
+        .main-screen {
+            .main-title {
+                font-size: 30px;
+                min-height: 0;
+                margin-bottom: 20px;
+            }
+            .numbers {
+                .item {
+                    .big {
+                        font-size: 18px;
+                    }
+                    .small {
+                        font-size: 12px;
+                    }
+                }
+            }
+            .descriptions {
+                .items {
+                    flex-wrap: wrap;
+                    .item {
+                        width: 100%;
+                        margin-bottom: 10px;
+                        .item-title {
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+@import '../../scss/variables.scss';
+#faq-quests {
+    .container {
+        padding-top: 40px;
+        h2 {
+            font-size: 32px;
+            font-weight: 500;
+            color: #222222;
+            margin-bottom: 40px;
+        }
+    }
+    .faq-accordion {
+        margin-bottom: 30px;
+        .faq-accordion-item {
+            color: #222222;
+            margin-bottom: 15px;
+            h3 {
+                background: #f4f4f4;
+                font-size: 18px;
+                font-weight: 500;
+                padding: 10px 20px;
+            }
+            .answer {
+               padding: 15px 20px 20px; 
+               font-size: 15px;
+               line-height: 1.5;
+               p {
+                   margin-bottom: 5px;
+               }
+               ul {
+                   list-style-position: inside;
+                   li {
+                       margin-bottom: 10px;
+                   }
+               }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #faq-quests {
+        .container {
+            padding-top: 20px;
+            h2 {
+                margin-bottom: 30px;
+            }
+        }
+        .faq-accordion {
+            .faq-accordion-item {
+                margin-bottom: 5px;
+                h3 {
+                    font-size: 16px;
+                    padding: 10px 15px;
+                }
+                .answer {
+                    font-size: 14px;
+                    padding: 15px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #faq-quests {
+        .container {
+            h2 {
+                font-size: 26px;
+            }
+        }
+    }
+}

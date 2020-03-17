@@ -1,0 +1,20 @@
+@import '../../../scss/variables.scss';
+#map {
+    h2 {
+        text-align: center;
+        padding: 30px 0;
+        font-weight: 500;
+        font-size: 32px;
+        color: #434343;
+        background: $lightGreyColor;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #map {
+        h2 {
+            font-size: 22px;
+            padding: 15px 0;
+        }
+    }
+}

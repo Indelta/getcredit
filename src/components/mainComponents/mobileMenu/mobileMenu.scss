@@ -1,0 +1,162 @@
+@import '../../../scss/variables.scss';
+#mobileMenu {
+    .burger {
+        background: transparent;
+        border: 0;
+        cursor: pointer;
+        text-align: center;
+        font-size: 36px;
+        &:focus {
+            outline: none;
+        }
+    }
+    .mobileMenu-wrap {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 4;
+        background: rgba(0, 0, 0, .8);
+        width: 100%;
+        height: 100vh;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        overflow: auto;
+        &.menu-enter {
+            visibility: visible;
+            opacity: 0;
+        }
+        &.menu-enter-done {
+            visibility: visible;
+            opacity: 1;
+            transition: all .3s;
+        }
+        &.menu-exit {
+            opacity: 1;
+            visibility: visible;
+        }
+        &.menu-exit-active {
+            visibility: hidden;
+            opacity: 0;
+            transition: all .3s;
+        }
+        .close {
+            width: 30px;
+            height: 30px;
+            background-color: transparent;
+            border-radius: 50%;
+            text-align: center;
+            border: 2px solid #fff;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            line-height: 26px;
+            color: #fff;
+        }
+        .menu {
+            position: absolute;
+            width: 80%;
+            background: #565555;
+            min-height: 100%;
+            z-index: 5;
+            top: 0;
+            &.aside-enter {
+                left: -100%;
+            }
+            &.aside-enter-done {
+                left: 0;
+                transition: all .4s;
+            }
+            &.aside-exit {
+                left: 0;
+            }
+            &.aside-exit-active {
+                left: -100%;
+                transition: all .4s;
+            }
+            .mobile-menu-item {
+                display: block;
+                padding: 10px;
+                background: $blueLinkColor;
+                color: #fff;
+                font-size: 17px;
+                font-weight: 700;
+                position: relative;
+                margin-bottom: 1px;
+                &.active {
+                    background: #585756;
+                    background: -moz-linear-gradient(top, #585756 0%, #4f4e4f 100%);
+                    background: -webkit-linear-gradient(top, #585756 0%,#4f4e4f 100%);
+                    background: linear-gradient(to bottom, #585756 0%,#4f4e4f 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#585756', endColorstr='#4f4e4f',GradientType=0 );
+                }
+            }
+            .mobile-accordion {
+                .mobile-accordion-item {
+                    margin-bottom: 1px;
+                    h3 {
+                        padding: 10px;
+                        background: $blueLinkColor;
+                        color: #fff;
+                        font-size: 17px;
+                        font-weight: 700;
+                        position: relative;
+                        &::after {
+                            content: '\276F';
+                            display: block;
+                            position: absolute;
+                            width: 40px;
+                            height: 40px;
+                            top: 0;
+                            bottom: 0;
+                            right: 15px;
+                            color: rgba(255, 255, 255, .5);
+                            font-size: 20px;
+                            line-height: 40px;
+                            text-align: center;
+                            font-weight: 100;
+                            transition: all .3s;
+                        }
+                    }
+                    .innerItems {
+                        li {
+                            a {
+                                display: block;
+                                padding: 12px 20px;
+                                color: #fff;
+                                font-size: 14px;
+                                background: #585756;
+                                background: -moz-linear-gradient(top, #585756 0%, #4f4e4f 100%);
+                                background: -webkit-linear-gradient(top, #585756 0%,#4f4e4f 100%);
+                                background: linear-gradient(to bottom, #585756 0%,#4f4e4f 100%);
+                                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#585756', endColorstr='#4f4e4f',GradientType=0 );
+                            }
+                        }
+                    }
+                    &.react-sanfona-item-expanded {
+                        h3 {
+                            &::after {
+                                transform: rotate(90deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #mobileMenu {
+        padding-right: 5px;
+    }
+}
+@media screen and (max-width: 360px) {
+    #mobileMenu {
+        .burger {
+            font-size: 30px;
+        }
+    }
+}
