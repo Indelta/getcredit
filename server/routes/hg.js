@@ -2,7 +2,7 @@ const convert = require('xml-js');
 const request = require('request');
 const promise = require('../modules/promise');
 
-const BITRIX_REST_URL = `https://getcredit.bitrix24.by/rest/14/${process.env.B24_TOKEN}/`;
+const BITRIX_REST_URL = `https://getcredit.bitrix24.by/rest/360/${process.env.B24_TOKEN}/`;
 const ERIPID = process.env.ERIP_ID || 11132001;
 const HG_URL = process.env.HG_URL || "https://trial.hgrosh.by/API/v1/";
 const loginData = {

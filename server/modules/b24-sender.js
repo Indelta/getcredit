@@ -112,7 +112,7 @@ const getMyFinData = (req, sellerId) => {
 
 const createNewLead = (req, sellerId) => {
     request.post(
-        `https://getcredit.bitrix24.by/rest/14/${process.env.B24_TOKEN}/crm.lead.add`,
+        `https://getcredit.bitrix24.by/rest/360/${process.env.B24_TOKEN}/crm.lead.add`,
         {
             json: getBitrixData(req, sellerId), // Поменять 14 на sellerId на продакшне
         },
@@ -122,7 +122,7 @@ const createNewLead = (req, sellerId) => {
 
 const createMyFinLead = (req, sellerId) => {
     request.post(
-        `https://getcredit.bitrix24.by/rest/14/${process.env.B24_TOKEN}/crm.lead.add`,
+        `https://getcredit.bitrix24.by/rest/360/${process.env.B24_TOKEN}/crm.lead.add`,
         {
             json: getMyFinData(req, sellerId), // Поменять 14 на sellerId на продакшне
         },
