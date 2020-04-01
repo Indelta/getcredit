@@ -5,6 +5,8 @@ import { CSSTransition } from 'react-transition-group';
 import { nextStep, prevStep, inputChangeHandler } from './controllers';
 import { getSteps } from './getSteps';
 import './calc.scss';
+import Banner from '../banner/banner';
+
 class Calc extends Component {
     constructor(props) {
         super(props);
@@ -53,6 +55,7 @@ class Calc extends Component {
     render () {
         return (
             <div id="calc">
+                <Banner />
                 <CSSTransition
                     in={this.state.isMainScreen}
                     timeout={400}

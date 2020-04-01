@@ -1,0 +1,52 @@
+.banner {
+  position: fixed;
+  right: 60px;
+  bottom: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 160px;
+  height: 160px;
+  background: url('../../images/banner/sticker.png');  
+  border-radius: 50%;
+  font-family: 'BebasNeue';
+  font-weight: 700;
+  cursor: pointer;
+  z-index: 2;
+
+  &:hover {
+    opacity: .9;
+  }
+
+  &__date {
+    font-size: 16px;
+    color: #3b620c;
+  }
+
+  &__text {
+    font-size: 17px;
+    margin-top: 5px;
+  }
+
+  &__day {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+
+  &__time {
+    margin-top: 5px;
+    font-size: 23px;
+    color: #3b620c;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: white;
+  }
+}

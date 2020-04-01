@@ -18,6 +18,7 @@ const ConsultationPopup = props => {
     const [isDialog, setIsDialog] = useState(false);
     const type = `Консультация по кредитам - ${window.location.pathname}`;
     const btnName = "Заказать";
+    const flag = props.store.isFlag;
     useEffect(() => {
         const noScroll = e => {
             e = e || window.event;
@@ -82,8 +83,16 @@ const ConsultationPopup = props => {
                     <div className="popup-dialog">
                         <button className="close" onClick={() => props.visiblePopup(false)} aria-label="Закрыть"><IoMdClose /></button>
                         <img src={icon} alt="consultation icon" />
-                        <h2>Консультация по кредитам</h2>
-                        <p>Оставьте свой номер телефона и наш консультант свяжется с Вами в ближайшее время</p>
+                        <h2>
+                        {
+                            flag ? 'Мы знаем, где есть кредиты!' : 'Консультация по кредитам'
+                        }
+                        </h2>
+                        <p>
+                            {
+                                flag ? 'Подберем банки, выдающие кредит в текущей ситуации на выгодных условиях' : 'Оставьте свой номер телефона и наш консультант свяжется с Вами в ближайшее время'
+                            }
+                        </p>
                         <input 
                             type="text" 
                             placeholder="Ваше Имя"
