@@ -49,9 +49,14 @@ const ConsultationPopup = props => {
                         setName("");
                         setPhone("");
                         setIsDialog(false);
-                        props.visibleThankyouPage(true);
-                        window.ym(window.yandexCounterId, 'reachGoal', 'Credit_Consultation');
-                        window.gtag('event', 'send', {'event_category': 'Event', 'event_action': 'Send', 'event_label': 'Credit_Consultation' });
+                        props.visibleThankyouPage(true); 
+                        
+                        flag ? window.ym(45775767, 'reachGoal', 'Credit_Consultation') :  window.ym(window.yandexCounterId, 'reachGoal', 'Credit_Consultation');
+
+                        flag ? window.gtag('event', 'send', {'event_category': 'Event', 'event_action': 'Send', 'event_label': 'Credit_Consultation' }) : window.gtag('event', 'send', {'event_category': 'Event', 'event_action': 'Send', 'event_label': 'Credit_Consultation' });
+
+                        // window.ym(window.yandexCounterId, 'reachGoal', 'Credit_Consultation');
+                        // window.gtag('event', 'send', {'event_category': 'Event', 'event_action': 'Send', 'event_label': 'Credit_Consultation' });
                         window._tmr.push({ id: window.mtCounterId, type: 'reachGoal', goal: 'Credit_Consultation' });
                     }
                     else console.error(data.message);
