@@ -85,7 +85,11 @@ const mainMenu = [
     {
         "name": "Калькулятор",
         "link": "/calculator",
-    }
+    },
+    // {
+    //     "name": "Расчет",
+    //     "link": "/main-calculator",
+    // }
 ];
 
 const yellowLink = [

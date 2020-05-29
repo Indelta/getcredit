@@ -47,8 +47,27 @@ const forms_route = app => {
         spreader.process(spreaderCallback);
         res.send({error: false, message: "success"});
     });
+
+    // infoBank 
+    app.post('/api/send-form-infobank', async (req, res) => {
+        let regMinsk = /Минск/gim;
+        let spreaderData = {
+            summa: req.body.summa,
+            location: regMinsk.test(req.body.city) ? 0 : 1
+        }
+        let spreaderCallback = (bitrixId) => {
+            B24.createInfoBankLead({...req, utm_source: "infobank_fl", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : 'noCityData'}, bitrixId);
+            MailSender.sendMail(req, {type: 'infoBank'});
+            GoogleSender.sendGoogleSheets({...req, utm_source: "infobank_fl", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : 'noCityData'});
+        }
+
+        let spreader = new Spreader(spreaderData);
+        spreader.process(spreaderCallback);
+        res.send({error: false, message: "success"});
+    });
 }
 
 
 
 module.exports = forms_route;
+
