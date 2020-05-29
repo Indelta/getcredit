@@ -111,28 +111,28 @@ const getMyFinData = (req, sellerId) => {
 }
 
 const getInfoBankData = (req, sellerId) => {
-    const summa = req.body.summa ? req.body.summa : null;
+    const total = req.body.total ? req.body.total : null;
     const city = req.body.city ? req.body.city : null;
     const dohod = req.body.dohod ? req.body.dohod : null;
     const work_experience = req.body.work_experience ? req.body.work_experience : null;
-    const name = req.body.name ? req.body.name : null;
+    const fio = req.body.fio ? req.body.fio : null;
     const phone = req.body.phone ? req.body.phone.replace(/\D+/gim, "") : null;
     const utm_source = "infobank_fl";
     const utm_campaign = req.utm_campaign;
-    const title = (summa && name) ? `${name}, сумма - ${summa}` : "Новый лид с сайта infobank.by";
+    const title = (total && fio) ? `${fio}, сумма - ${total}` : "Новый лид с сайта infobank.by";
 
     let comments = "";
-    summa && (comments += `Сумма: ${summa} `);
+    total && (comments += `Сумма: ${total} `);
     city && (comments += `Город: ${city} `);
     dohod && (comments += `Доход: ${dohod} `);
     work_experience && (comments += `Стаж: ${work_experience} `);
-    name && (comments += `Имя: ${name}`);
+    fio && (comments += `Имя: ${fio}`);
     phone && (comments += `Телефон: ${phone}`);
 
     const bitrix_data = {
         "fields": {
             'TITLE': title,
-            'NAME': name,
+            'NAME': fio,
             'PHONE': [
                 {
                     'VALUE': phone,

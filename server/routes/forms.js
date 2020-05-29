@@ -51,8 +51,9 @@ const forms_route = app => {
     // infoBank 
     app.post('/api/send-form-infobank', async (req, res) => {
         let regMinsk = /Минск/gim;
+        let total = req.body.total.replace(/\D+/gim, "");
         let spreaderData = {
-            summa: req.body.summa,
+            summa: total,
             location: regMinsk.test(req.body.city) ? 0 : 1
         }
         let spreaderCallback = (bitrixId) => {
