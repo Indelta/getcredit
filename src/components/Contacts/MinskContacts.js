@@ -10,6 +10,7 @@ function MinskContacts () {
                 <p>Воскресенье: выходной</p>
             </div>
             <div className="item">
+            <h4 className="item-title">Контакты:</h4>
                 <p>Прием заявок: круглосуточно</p>
                 <p>Единый номер: +375&nbsp;(29)&nbsp;772-8-772</p>
                 <p>E-mail: info@getcredit.by</p>

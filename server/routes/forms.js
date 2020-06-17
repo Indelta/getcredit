@@ -33,14 +33,16 @@ const forms_route = app => {
     // MyFin 
     app.post('/api/send-form', async (req, res) => {
         let regMinsk = /Минск/gim;
+        let regGomel = /Гомель/gim;        
+
         let spreaderData = {
             summa: req.body.summa,
-            location: regMinsk.test(req.body.city) ? 0 : 1
+            location: regMinsk.test(req.body.city) ? 0 : regGomel.test(req.body.city) ? 2 : 1  
         }
         let spreaderCallback = (bitrixId) => {
-            B24.createMyFinLead({...req, utm_source: "myfin_form", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : 'noCityData'}, bitrixId);
+            B24.createMyFinLead({...req, utm_source: "myfin_form", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : spreaderData.location === 2 ? 'Gomel' : 'noCityData'}, bitrixId);
             MailSender.sendMail(req, {type: 'MyFin'});
-            GoogleSender.sendGoogleSheets({...req, utm_source: "myfin_form", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : 'noCityData'});
+            GoogleSender.sendGoogleSheets({...req, utm_source: "myfin_form", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : spreaderData.location === 2 ? 'Gomel' : 'noCityData'});
         }
 
         let spreader = new Spreader(spreaderData);
@@ -51,15 +53,39 @@ const forms_route = app => {
     // infoBank 
     app.post('/api/send-form-infobank', async (req, res) => {
         let regMinsk = /Минск/gim;
+        let regGomel = /Гомель/gim;
+
         let total = req.body.total.replace(/\D+/gim, "");
         let spreaderData = {
             summa: total,
-            location: regMinsk.test(req.body.city) ? 0 : 1
+            location: regMinsk.test(req.body.city) ? 0 : regGomel.test(req.body.city) ? 2 : 1   
         }
         let spreaderCallback = (bitrixId) => {
-            B24.createInfoBankLead({...req, utm_source: "infobank_fl", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : 'noCityData'}, bitrixId);
+            B24.createInfoBankLead({...req, utm_source: "infobank_fl", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : spreaderData.location === 2 ? 'Gomel' : 'noCityData'}, bitrixId);
             MailSender.sendMail(req, {type: 'infoBank'});
-            GoogleSender.sendGoogleSheets({...req, utm_source: "infobank_fl", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : 'noCityData'});
+            GoogleSender.sendGoogleSheets({...req, utm_source: "infobank_fl", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : spreaderData.location === 2 ? 'Gomel' : 'noCityData'});
+        }
+
+        let spreader = new Spreader(spreaderData);
+        spreader.process(spreaderCallback);
+        res.send({error: false, message: "success"});
+    });
+
+    // tut.by
+    app.post('/api/send-form-tutby', async (req, res) => {
+        let regMinsk = /Минск/gim;
+        let regGomel = /Гомель/gim;
+
+        let summa = req.body.summa.replace(/\D+/gim, "");        
+        let spreaderData = {
+            summa: summa,
+            location: regMinsk.test(req.body.city) ? 0 : regGomel.test(req.body.city) ? 2 : 1              
+        }
+        
+        let spreaderCallback = (bitrixId) => {
+            B24.createTutByLead({...req, utm_source: req.body.form === 'авто' ? 'tutby_avto' : 'tutby_fl', utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : spreaderData.location === 2 ? 'Gomel' : 'noCityData'}, bitrixId);
+            MailSender.sendMail(req, {type: 'tut.by'});
+            GoogleSender.sendGoogleSheets({...req, utm_source: req.body.form === 'авто' ? 'tutby_avto' : 'tutby_fl', utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : spreaderData.location === 2 ? 'Gomel' : 'noCityData'});
         }
 
         let spreader = new Spreader(spreaderData);

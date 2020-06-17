@@ -11,7 +11,7 @@ class Spreader {
         const {summa = 0, location = 0} = insetData;
         this._summa = parseInt(summa, 10);
         this._location = location;
-        this._assoc = ["minsk", "mogilev"];
+        this._assoc = ["minsk", "mogilev", "gomel"];
     }
 
     getLocationByCode () {

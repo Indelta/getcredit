@@ -1,6 +1,7 @@
 import React from 'react';
 
 function Tabs (props) {
+    console.log(props)
     return(
         <div className="tabs">
             <button 
@@ -17,6 +18,13 @@ function Tabs (props) {
             >
                 Могилев
             </button>
+            {/* <button 
+                className={`tab ${props.active === 2 ? 'active' : ''}`} 
+                location={2}
+                onClick={props.clickTabHandler}
+            >
+                Гомель
+            </button> */}
         </div>
     );
 }

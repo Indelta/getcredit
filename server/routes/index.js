@@ -7,6 +7,7 @@ const appCount_routes = require('./app-count');
 const hg_route = require('./hg');
 const vk_route = require('./vk');
 const schemas_routes = require('./schemas');
+const wiget = require ('./wiget');
 
 const router = (app, passport, jwtOpts) => {
     
@@ -19,6 +20,7 @@ const router = (app, passport, jwtOpts) => {
     appCount_routes(app);
     hg_route(app);
     vk_route(app);
+    wiget(app);
 }
 
 module.exports = router;

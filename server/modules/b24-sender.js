@@ -150,6 +150,46 @@ const getInfoBankData = (req, sellerId) => {
     return bitrix_data;
 }
 
+const getTutByData = (req, sellerId) => {
+    const summa = req.body.summa ? req.body.summa : null;
+    const city = req.body.city ? req.body.city : null;
+    const dohod = req.body.dohod ? req.body.dohod : null;
+    const work_experience = req.body.work_experience ? req.body.work_experience : null;
+    const name = req.body.name ? req.body.name : null;
+    const phone = req.body.phone ? req.body.phone.replace(/\D+/gim, "") : null;
+    const utm_source = req.utm_source;
+    const utm_campaign = req.utm_campaign;
+    const title = (summa && name) ? `${name}, сумма - ${summa}` : "Новый лид с сайта tut.by";
+
+    let comments = "";
+    summa && (comments += `Сумма: ${summa} `);
+    city && (comments += `Город: ${city} `);
+    dohod && (comments += `Доход: ${dohod} `);
+    work_experience && (comments += `Стаж: ${work_experience} `);
+    name && (comments += `Имя: ${name}`);
+    phone && (comments += `Телефон: ${phone}`);
+
+    const bitrix_data = {
+        "fields": {
+            'TITLE': title,
+            'NAME': name,
+            'PHONE': [
+                {
+                    'VALUE': phone,
+                    'VALUE_TYPE': 'MOBILE'
+                }
+            ],
+            "ASSIGNED_BY_ID": sellerId,
+            'SOURCE_DESCRIPTION': `Форма из tut.by`,
+            'SOURCE_ID': 'WEB',
+            'COMMENTS': comments,
+            'UTM_SOURCE': utm_source,
+            'UTM_CAMPAIGN': utm_campaign
+        },
+    };
+    return bitrix_data;
+}
+
 const createNewLead = (req, sellerId) => {
     request.post(
         `https://getcredit.bitrix24.by/rest/360/${process.env.B24_TOKEN}/crm.lead.add`,
@@ -180,4 +220,14 @@ const createInfoBankLead = (req, sellerId) => {
     );
 }
 
-module.exports = { createNewLead, createMyFinLead, createInfoBankLead };
+const createTutByLead = (req, sellerId) => {
+    request.post(
+        `https://getcredit.bitrix24.by/rest/360/${process.env.B24_TOKEN}/crm.lead.add`,
+        {
+            json: getTutByData(req, sellerId), // Поменять 14 на sellerId на продакшне
+        },
+        (err, response, body) => {err, response, body}
+    );
+}
+
+module.exports = { createNewLead, createMyFinLead, createInfoBankLead, createTutByLead };
