@@ -6,9 +6,12 @@ const counter = require('../modules/counter');
 
 const forms_route = app => {
     app.post('/api/send-form-main', async (req, res) => {
+        let regMogilev = /mogilev/gim;
+        let regGomel = /gomel/gim; 
+
         let spreaderData = {
             summa: req.body.summa,
-            location: req.body.location || 0,
+            location: regMogilev.test(req.body.utm_campaign) ? 1 : regGomel.test(req.body.utm_campaign) ? 2 : 0
         }
         // если есть superseller - отправляем заявку ему
         if (req.body.superseller) {
@@ -37,7 +40,7 @@ const forms_route = app => {
 
         let spreaderData = {
             summa: req.body.summa,
-            location: regMinsk.test(req.body.city) ? 0 : regGomel.test(req.body.city) ? 2 : 1  
+            location: regMinsk.test(req.body.city) ? 0 : regGomel.test(req.body.city) ? 2 : 1 
         }
         let spreaderCallback = (bitrixId) => {
             B24.createMyFinLead({...req, utm_source: "myfin_form", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : spreaderData.location === 2 ? 'Gomel' : 'noCityData'}, bitrixId);
@@ -58,7 +61,7 @@ const forms_route = app => {
         let total = req.body.total.replace(/\D+/gim, "");
         let spreaderData = {
             summa: total,
-            location: regMinsk.test(req.body.city) ? 0 : regGomel.test(req.body.city) ? 2 : 1   
+            location: regMinsk.test(req.body.city) ? 0 : regGomel.test(req.body.city) ? 2 : 1 
         }
         let spreaderCallback = (bitrixId) => {
             B24.createInfoBankLead({...req, utm_source: "infobank_fl", utm_campaign: spreaderData.location === 1 ? 'Mogilev' : spreaderData.location === 0 ? 'Minsk' : spreaderData.location === 2 ? 'Gomel' : 'noCityData'}, bitrixId);
@@ -73,13 +76,13 @@ const forms_route = app => {
 
     // tut.by
     app.post('/api/send-form-tutby', async (req, res) => {
-        let regMinsk = /Минск/gim;
+        let regMogilev = /Могилев/gim;
         let regGomel = /Гомель/gim;
 
         let summa = req.body.summa.replace(/\D+/gim, "");        
         let spreaderData = {
             summa: summa,
-            location: regMinsk.test(req.body.city) ? 0 : regGomel.test(req.body.city) ? 2 : 1              
+            location: regMogilev.test(req.body.utm_campaign) ? 1 : regGomel.test(req.body.utm_campaign) ? 2 : 0              
         }
         
         let spreaderCallback = (bitrixId) => {

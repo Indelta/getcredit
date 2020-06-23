@@ -6,13 +6,13 @@ function GomelContacts () {
             <div className="item">
                 <h4 className="item-title">Режим работы:</h4>
                 <p>Пн-Чт: с 10:00 до 19:00</p>
-                <p>Пт-Сб: с 10:00 до 17:00</p>
-                <p>Воскресенье: выходной</p>
+                <p>Пт: с 10:00 до 17:00</p>
+                <p>Суббота, воскресенье: выходной</p>
             </div>
             <div className="item">
             <h4 className="item-title">Контакты:</h4>
                 <p>Прием заявок: круглосуточно</p>
-                <p>Единый номер: +375&nbsp;(29)&nbsp;772-8-772</p>
+                <p>Единый номер: +375&nbsp;(29)&nbsp;538-02-44</p>
                 <p>E-mail: info@getcredit.by</p>
             </div>
             <div className="item">

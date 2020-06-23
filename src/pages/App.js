@@ -159,6 +159,9 @@ class App extends Component {
     if (utms.utm_campaign && utms.utm_campaign.match(/mogilev/gim))
       location = 1;
     this.props.updateUtms({ ...utms, location });
+    if (utms.utm_campaign && utms.utm_campaign.match(/gomel/gim))
+    location = 2;
+    this.props.updateUtms({ ...utms, location });
     // axios.get('http://ip-api.com/json/?lang=ru')
     //     .then(response => response.data)
     //     .then(data => {

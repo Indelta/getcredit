@@ -130,7 +130,7 @@ const CalcMainScreen = (props) => {
         <div className="calc-main">
             <div className="calc-main-screen">
                 <div className="container">
-                    <h2 className="title">{`${title} ${props.location === 1 ? 'в Могилёве' : ''}`}</h2>
+                    <h2 className="title">{`${title} ${props.location === 1 ? 'в Могилёве' : props.location === 2 ? 'в Гомеле' :''}`}</h2>
                     <div className="left">
                         <p className="first">{subtitle}</p>
                         <CountSlider 

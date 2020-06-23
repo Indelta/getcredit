@@ -37,6 +37,7 @@ function AdminSitebar (props) {
                     <li onClick={() => setVisibleSitebar(false)}><NavLink to="/admin/posts/published" activeClassName="active"><FaFileSignature />Статьи</NavLink></li>
                     <li onClick={() => setVisibleSitebar(false)}><NavLink to="/admin/sellersQueue/0" activeClassName="active"><FaDatabase />Очередь получения заявок (Минск)</NavLink></li>
                     <li onClick={() => setVisibleSitebar(false)}><NavLink to="/admin/sellersQueue/1" activeClassName="active"><FaDatabase />Очередь получения заявок (Могилев)</NavLink></li>
+                    <li onClick={() => setVisibleSitebar(false)}><NavLink to="/admin/sellersQueue/2" activeClassName="active"><FaDatabase />Очередь получения заявок (Гомель)</NavLink></li>
                     <li><NavLink to="/admin/schedule-and-schemas" activeClassName="active"><MdSchedule/>Расписание и шаблоны</NavLink></li>
                     <li onClick={() => setVisibleSitebar(false)}><NavLink to="/admin/users" activeClassName="active"><FaUserPlus />Администраторы</NavLink></li>
                     <li onClick={() => setVisibleSitebar(false)}><a href="/" onClick={adminLogOut}><GoSignOut />Выйти из учетной записи</a></li>
